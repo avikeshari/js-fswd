@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './components/Header.jsx'
+//import Header from './components/Header.jsx'
 
 /*function App(){ 
   return <div>
@@ -18,7 +18,43 @@ const App = () => {
   </div>
 }*/
 
+/*export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: 0
+    }
+  }
+
+  hLike = () => {
+    this.setState({
+      likes: this.state.likes + 1
+    })
+  }
+
+  render() {
+    return <div>
+      <h1>Likes: {this.state.likes}</h1>
+      <button onClick={this.hLike}>Like</button>
+    </div>
+  }
+}*/
+
+/*const App = () => {
+  let likes = 0;
+
+  const lHandler = () => {
+    likes++;
+  };
+
+  return <div>
+    <h1>Likes: {likes}</h1>
+    <button onClick={lHandler}>Like</button>
+  </div>
+}*/
+
 export class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
