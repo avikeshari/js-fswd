@@ -68,10 +68,20 @@ export class App extends React.Component {
     })
   }
 
+  hDis = () => {
+    if(this.state.likes>0){
+      this.setState({
+        likes: this.state.likes - 1
+      })
+    }
+    else;
+  }
+
   render() {
     return <div>
       <h1>Likes: {this.state.likes}</h1>
       <button onClick={this.hLike}>Like</button>
+      <button onClick={this.hDis}>Dislike</button>
     </div>
   }
 }
