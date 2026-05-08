@@ -80,8 +80,17 @@ export class App extends React.Component {
   render() {
     return <div>
       <h1>Likes: {this.state.likes}</h1>
-      <button onClick={this.hLike}>Like</button>
-      <button onClick={this.hDis}>Dislike</button>
+      <button onClick={this.hLike}>
+        <span className="material-symbols-outlined">
+          thumb_up
+        </span>
+      </button>
+      &nbsp;
+      <button onClick={this.hDis}>
+        <span className="material-symbols-outlined">
+          thumb_down
+        </span>
+      </button>
     </div>
   }
 }
