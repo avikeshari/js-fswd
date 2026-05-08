@@ -58,7 +58,7 @@ export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: 0
+      likes: 0, dislikes: 0
     }
   }
 
@@ -68,16 +68,22 @@ export class App extends React.Component {
     })
   }
 
-  hDis = () => {
+  /*hDis = () => {
     if(this.state.likes>0){
       this.setState({
         likes: this.state.likes - 1
       })
     }
     else;
+  }*/
+
+  hDis = () => {
+    this.setState({
+      dislikes: this.state.dislikes + 1
+    })
   }
 
-  render() {
+  /*render() {
     return <div>
       <h1>Likes: {this.state.likes}</h1>
       <button onClick={this.hLike}>
@@ -90,6 +96,24 @@ export class App extends React.Component {
         <span className="material-symbols-outlined">
           thumb_down
         </span>
+      </button>
+    </div>
+  }*/
+
+  render() {
+    return <div>
+      <button onClick={this.hLike}>
+        <span className="material-symbols-outlined">
+          thumb_up
+        </span>
+        {this.state.likes}
+      </button>
+      &nbsp;
+      <button onClick={this.hDis}>
+        <span className="material-symbols-outlined">
+          thumb_down
+        </span>
+        {this.state.dislikes}
       </button>
     </div>
   }
