@@ -1,4 +1,5 @@
 import React from 'react'
+//import {useState} from 'react'
 //import Header from './components/Header.jsx'
 
 /*function App(){ 
@@ -56,7 +57,7 @@ const App = () => {
     <h1>Likes: {likes}</h1>
     <button onClick={lHandler}>Like</button>
   </div>
-}*/
+}
 
 export class App extends React.Component {
 
@@ -80,7 +81,7 @@ export class App extends React.Component {
       })
     }
     else;
-  }*/
+  }
 
   hDis = () => {
     this.setState({
@@ -88,7 +89,7 @@ export class App extends React.Component {
     })
   }
 
-  /*render() {
+  render() {
     return <div>
       <h1>Likes: {this.state.likes}</h1>
       <button onClick={this.hLike}>
@@ -103,7 +104,7 @@ export class App extends React.Component {
         </span>
       </button>
     </div>
-  }*/
+  }
 
   render() {
     return <div>
@@ -122,6 +123,50 @@ export class App extends React.Component {
       </button>
     </div>
   }
+}*/
+
+const App = () => {
+  const [reactions, setReactions] = React.useState({
+    likes: 0,
+    dislikes: 0
+  });
+
+  const [history, setHistory] = React.useState([]);
+
+  const hLike = () => {
+    setReactions ({
+      ...reactions,
+      likes: reactions.likes + 1
+    });
+    setHistory ([...history, 'L']);
+  };
+
+  const hDislike = () => {
+    setReactions ({
+      ...reactions,
+      dislikes: reactions.dislikes + 1
+    });
+    setHistory ([...history, 'D']);
+  };
+
+  console.log(history);
+
+  return <div>
+    <button onClick={hLike}>
+      <span className="material-symbols-outlined">
+        thumb_up
+      </span>
+      {reactions.likes}
+    </button>
+    &nbsp;
+    <button onClick={hDislike}>
+      <span className="material-symbols-outlined">
+        thumb_down
+      </span>
+      {reactions.dislikes}
+    </button>
+    <p>{history}</p>
+  </div>
 }
 
 export default App;
