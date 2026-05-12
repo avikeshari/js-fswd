@@ -9,12 +9,17 @@ import React from 'react'
 
 const App = () => {
   const [likes,setLikes] = React.useState(0);
+  const [dislikes,setDislikes] = React.useState(0);
   const hLike = () => {
     setLikes(likes + 1); //likes++
+  }
+  const hDislike = () => {
+    setDislikes(dislikes + 1);
   }
   return <div>
     <h1>Likes: {likes}</h1>
     <button onClick = {hLike}>Like</button>
+    <button onClick = {hDislike}>Dislike</button>
   </div>
 }*/
 
