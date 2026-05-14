@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 
 const App = () => {
 
@@ -16,20 +17,23 @@ const App = () => {
 
         e.target.email.focus();
     }
+    const formStyle = {
+        backgroundColor: "turquoise"
+    }
     return (
         <div>
             <h1>Log In</h1>
-            <form onSubmit={hLogIn}>
+            <form onSubmit={hLogIn} style={/*{display:"flex", flexDirection:"column", gap:"50", border:"1px solid red", padding:"10px"}*/formStyle}>
                 <div>
-                    <input name="email" type="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input name="email" type="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} style={{width:"100%"}} required />
                 </div>
                 &nbsp;
                 <div>
-                    <input name="password" type="password" placeholder="password..." value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <input name="password" type="password" placeholder="password..." value={password} onChange={(e) => setPassword(e.target.value)} style={{width:"100%"}} required />
                 </div>
                 &nbsp;
                 <div>
-                    <button type="submit">
+                    <button type="submit" className="bL">
                         Login
                     </button>
                 </div>
@@ -37,5 +41,11 @@ const App = () => {
         </div>
     )
 }
+
+/*const App = () => {
+    return <div>
+        App
+    </div>
+}*/
 
 export default App;
