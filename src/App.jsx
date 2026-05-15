@@ -22,8 +22,8 @@ const App = () => {
     }
     return (
         <div>
-            <h1>Log In</h1>
-            <form onSubmit={hLogIn} style={/*{display:"flex", flexDirection:"column", gap:"50", border:"1px solid red", padding:"10px"}*/formStyle}>
+            <form onSubmit={hLogIn}  className="fL">
+                <h1>Log In</h1>
                 <div>
                     <input name="email" type="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} style={{width:"100%"}} required />
                 </div>
