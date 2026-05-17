@@ -1,92 +1,180 @@
 import React from 'react'
-import './App.css'
+import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai'
+//import {useState} from 'react'
+//import Header from './components/Header.jsx'
 
-/*const App = () => {
-
-    const [email,setEmail]=React.useState("rana.harpreet12@gmail.com");
-    const [password,setPassword]=React.useState("qazsedcf");
-    const hLogIn = (e) => {
-        e.preventDefault();
-        //console.log(e.target.email.value);
-        console.log(email,password);
-        //console.log(e.target.password.value);
-        console.log("Form submitted successfully!");
-        //reset the form
-        setEmail("");
-        setPassword("");
-
-        e.target.email.focus();
-    }
-    const formStyle = {
-        backgroundColor: "turquoise"
-    }
-    return (
-        <div>
-            <form onSubmit={hLogIn}  className="fL">
-                <h1>Log In</h1>
-                <div>
-                    <input name="email" type="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} style={{width:"100%"}} required />
-                </div>
-                &nbsp;
-                <div>
-                    <input name="password" type="password" placeholder="password..." value={password} onChange={(e) => setPassword(e.target.value)} style={{width:"100%"}} required />
-                </div>
-                &nbsp;
-                <div>
-                    <button type="submit" className="bL">
-                        Login
-                    </button>
-                </div>
-            </form>
-        </div>
-    )
-}*/
+/*function App(){ 
+  return <div>
+    <Header />
+  </div>
+}
 
 const App = () => {
+  const [likes,setLikes] = React.useState(0);
+  const [dislikes,setDislikes] = React.useState(0);
+  const hLike = () => {
+    setLikes(likes + 1); //likes++
+  }
+  const hDislike = () => {
+    setDislikes(dislikes + 1);
+  }
+  return <div>
+    <h1>Likes: {likes}</h1>
+    <button onClick = {hLike}>Like</button>
+    <button onClick = {hDislike}>Dislike</button>
+  </div>
+}*/
 
-    const [email,setEmail]=React.useState("rana.harpreet12@gmail.com");
-    const [password,setPassword]=React.useState("qazsedcf");
-    const hLogIn = (e) => {
-        e.preventDefault();
-        //console.log(e.target.email.value);
-        console.log(email,password);
-        //console.log(e.target.password.value);
-        console.log("Form submitted successfully!");
-        //reset the form
-        setEmail("");
-        setPassword("");
-
-        e.target.email.focus();
+/*export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: 0
     }
-    /*const formStyle = {
-        backgroundColor: "turquoise"
-    }*/
-    return (
-        <div>
-            <form onSubmit={hLogIn} className="flex flex-col gap-4 w-full mx-auto mt-10 border border-blue-300 rounded p-8 shadow-lg">
-                <h1 className="text-2xl font-bold text-center">Log In</h1>
-                <div className="flex flex-col gap-2">
-                    <input name="email" type="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} className="border border-gray-300 rounded px-3 py-2 w-full" required />
-                </div>
-                &nbsp;
-                <div>
-                    <input name="password" type="password" placeholder="password..." value={password} onChange={(e) => setPassword(e.target.value)} className="border border-gray-300 rounded px-3 py-2 w-full" required />
-                </div>
-                &nbsp;
-                <div>
-                    <button type="submit" className="bg-blue-500 text-white rounded px-3 py-2 w-full">
-                        Login
-                    </button>
-                </div>
-            </form>
-        </div>
-    )
+  }
+
+  hLike = () => {
+    this.setState({
+      likes: this.state.likes + 1
+    })
+  }
+
+  render() {
+    return <div>
+      <h1>Likes: {this.state.likes}</h1>
+      <button onClick={this.hLike}>Like</button>
+    </div>
+  }
+}*/
+
+/*const App = () => {
+  let likes = 0;
+
+  const lHandler = () => {
+    likes++;
+  };
+
+  return <div>
+    <h1>Likes: {likes}</h1>
+    <button onClick={lHandler}>Like</button>
+  </div>
+}*/
+
+export class App extends React.Component {
+
+  /*constructor(props) {
+    super(props);
+    this.state = {
+      likes: 0, dislikes: 0
+    }
+  }*/
+
+  state = {
+      likes: 0, dislikes: 0
+  }
+
+  hLike = () => {
+    this.setState({
+      ...this.state,
+      likes: this.state.likes + 1
+    })
+  }
+
+  /*hDis = () => {
+    if(this.state.likes>0){
+      this.setState({
+        
+        likes: this.state.likes - 1
+      })
+    }
+    else;
+  }*/
+
+  hDis = () => {
+    this.setState({
+      ...this.state,
+      dislikes: this.state.dislikes + 1
+    })
+  }
+
+  /*render() {
+    return <div>
+      <h1>Likes: {this.state.likes}</h1>
+      <button onClick={this.hLike}>
+        <span className="material-symbols-outlined">
+          thumb_up
+        </span>
+      </button>
+      &nbsp;
+      <button onClick={this.hDis}>
+        <span className="material-symbols-outlined">
+          thumb_down
+        </span>
+      </button>
+    </div>
+  }*/
+
+  render() {
+    return <div>
+      <button onClick={this.hLike}>
+        <span className="material-symbols-outlined">
+          <AiOutlineLike style={{fontSize:"50px", color:"maroon"}} />
+        </span>
+        {this.state.likes}
+      </button>
+      &nbsp;
+      <button onClick={this.hDis}>
+        <span className="material-symbols-outlined">
+          <AiOutlineDislike style={{fontSize:"50px", color:"blue"}} />
+        </span>
+        {this.state.dislikes}
+      </button>
+    </div>
+  }
 }
 
 /*const App = () => {
-    return <div>
-        App
-    </div>
+  const [reactions, setReactions] = React.useState({
+    likes: 0,
+    dislikes: 0
+  });
+
+  const [history, setHistory] = React.useState([]);
+
+  const hLike = () => {
+    setReactions ({
+      ...reactions,
+      likes: reactions.likes + 1
+    });
+    setHistory ([...history, 'L']);
+  };
+
+  const hDislike = () => {
+    setReactions ({
+      ...reactions,
+      dislikes: reactions.dislikes + 1
+    });
+    setHistory ([...history, 'D']);
+  };
+
+  console.log(history);
+
+  return <div>
+    <button onClick={hLike}>
+      <span className="material-symbols-outlined">
+        thumb_up
+      </span>
+      {reactions.likes}
+    </button>
+    &nbsp;
+    <button onClick={hDislike}>
+      <span className="material-symbols-outlined">
+        thumb_down
+      </span>
+      {reactions.dislikes}
+    </button>
+    <p>{history}</p>
+  </div>
 }*/
 
 export default App;
