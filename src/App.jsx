@@ -1,5 +1,7 @@
 import React from 'react'
 import './App.css'
+import { FaHeart } from 'react-icons/fa'
+import { CiHeart } from 'react-icons/ci'
 
 /*const App = () => {
 
@@ -97,7 +99,7 @@ const App = () => {
         <h4>We know you're trained in {types.join()}</h4>
     </div>*/
 
-    const menu = [
+    /*const menu = [
         'Biryani',
         'Pulao',
         'Fried Rice',
@@ -108,6 +110,33 @@ const App = () => {
         'Sandwich',
         'Salad',
         'Pizza'
+    ];*/
+
+    const recipes = [
+        {
+            name: 'Pasta',
+            ingredients: ['Pasta', 'Tomato Sauce', 'Cheese'],
+            author: 'John Doe',
+            cookingTime: '30 minutes',
+            difficulty: 'Easy',
+            fav: true
+        },
+        {
+            name: 'Chicken Curry',
+            ingredients: ['Chicken', 'Curry Powder', 'Coconut Milk'],
+            author: 'Jane Smith',
+            cookingTime: '45 minutes',
+            difficulty: 'Medium',
+            fav: true
+        },
+        {
+            name: 'Chocolate Cake',
+            ingredients: ['Flour', 'Sugar', 'Cocoa Powder', 'Eggs'],
+            author: 'Emily Johnson',
+            cookingTime: '1 hour',
+            difficulty: 'Hard',
+            fav: false
+        }
     ];
 
     /*const list = [];
@@ -121,7 +150,29 @@ const App = () => {
     return <div>
         <h1>Menu</h1>
         <ul>
-            {menu.map((data, index) => <li key={index}>{data}</li>)}
+            {recipes.map((data, index) => <li key={index}>
+                <div className='card'>
+                    <header>
+                        <h2>{data.name}</h2>
+                        <span>
+                            {
+                                data.fav?<FaHeart />:<CiHeart />
+                            }
+                        </span>
+                    </header>
+                    <hr></hr>
+                    <p><strong>Author:</strong>{data.author}</p>
+                    <p><strong>Preparation Time:</strong>{data.cookingTime}</p>
+                    <p><strong>Difficulty:</strong>{data.difficulty}</p>
+                    <p><strong>Ingredients:</strong></p>
+                    <ul>
+                        {
+                            data.ingredients.map((items,i) => <li key={i}>{items}</li>)
+                        }
+                    </ul>
+                    <p><strong>Is it Favourite?</strong>{data.fav?<FaHeart />:<CiHeart />}</p>
+                </div>
+            </li>)}
         </ul>
     </div>
 
