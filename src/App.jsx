@@ -139,6 +139,8 @@ const App = () => {
         }
     ];*/
 
+    const [fetchData, setFetchData] = React.useState(0);
+
     const recipes = [];
 
     React.useEffect(() => {
@@ -167,6 +169,7 @@ const App = () => {
 
     return <div>
         <h1>Menu</h1>
+        <button onClick={() => setFetchData(fetchData + 1)}>Fetch Data</button>
         <ul>
             {recipes.map((data, index) => <li key={index}>
                 <div className='card'>
