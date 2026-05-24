@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import { FaHeart } from 'react-icons/fa'
 import { CiHeart } from 'react-icons/ci'
+import axios from 'axios'
 
 /*const App = () => {
 
@@ -145,15 +146,16 @@ const App = () => {
     const [recipes, setRecipes] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes')
-        .then((response) => {
+        //fetch('https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes')
+        axios.get('https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes')
+        /*.then((response) => {
             //console.log("Data fetched successfully!");
             return response.json();
-        })
+        })*/
         .then((data) => {
             //console.log(data);
             //recipes.push(...data);
-            setRecipes(data);
+            setRecipes(data.data);
         })
         /*.catch((error) => {
             console.error("Error fetching data:", error);
