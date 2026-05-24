@@ -139,25 +139,29 @@ const App = () => {
         }
     ];*/
 
-    const [fetchData, setFetchData] = React.useState(0);
+    /*const [fetchData, setFetchData] = React.useState(0);
+    const [counter, setCounter] = React.useState(0);*/
 
-    const recipes = [];
+    const [recipes, setRecipes] = React.useState([]);
 
     React.useEffect(() => {
         fetch('https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes')
         .then((response) => {
-            console.log("Data fetched successfully!");
+            //console.log("Data fetched successfully!");
             return response.json();
         })
         .then((data) => {
-            console.log(data);
-            recipes.push(...data);
+            //console.log(data);
+            //recipes.push(...data);
+            setRecipes(data);
         })
         /*.catch((error) => {
             console.error("Error fetching data:", error);
         });*/
         .catch((error => console.log(error)));
     }, []);
+
+    //console.log(fetchData, counter);
 
     /*const list = [];
 
@@ -169,7 +173,9 @@ const App = () => {
 
     return <div>
         <h1>Menu</h1>
-        <button onClick={() => setFetchData(fetchData + 1)}>Fetch Data</button>
+        {/*<button onClick={() => setFetchData(fetchData + 1)}>Fetch Data</button>
+        &nbsp;
+        <button onClick={() => setCounter(counter + 1)}>Counter</button>*/}
         <ul>
             {recipes.map((data, index) => <li key={index}>
                 <div className='card'>
