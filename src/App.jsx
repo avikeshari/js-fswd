@@ -157,7 +157,7 @@ const App = () => {
             console.error("Error fetching data:", error);
         });*/
         .catch((error => console.log(error)));
-    });
+    }, []);
 
     /*const list = [];
 
