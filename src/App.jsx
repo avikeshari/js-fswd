@@ -112,7 +112,7 @@ const App = () => {
         'Pizza'
     ];*/
 
-    const recipes = [
+    /*const recipes = [
         {
             name: 'Pasta',
             ingredients: ['Pasta', 'Tomato Sauce', 'Cheese'],
@@ -137,7 +137,25 @@ const App = () => {
             difficulty: 'Hard',
             fav: false
         }
-    ];
+    ];*/
+
+    const recipes = [];
+
+    React.useEffect(() => {
+        fetch('https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes')
+        .then((response) => {
+            console.log("Data fetched successfully!");
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            recipes.push(...data);
+        })
+        /*.catch((error) => {
+            console.error("Error fetching data:", error);
+        });*/
+        .catch((error => console.log(error)));
+    });
 
     /*const list = [];
 
