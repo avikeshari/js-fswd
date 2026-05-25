@@ -59,7 +59,7 @@ const App = () => {
 
 }*/
 
-const reducer = (state, action) => {
+/*const reducer = (state, action) => {
     switch (action.type) {
         case 'LIKE':
             return state + 1;
@@ -88,6 +88,36 @@ const App = () => {
         <button onClick={() => dispatch({ type: 'DISLIKE' })}>Dislike</button>
             &nbsp;
         <button onClick={() => dispatch({ type: 'GOLDEN_LIKES', payload: 10 })}>Golden Like</button>
+    </div>
+}*/
+
+const App = () => {
+
+    let count = React.useRef(0);
+    const emailHandle = React.useRef(null);
+
+    const handleInc = () => {
+        count.current = count.current + 1;
+    }
+
+    const handleDec = () => {
+        count.current = count.current - 1;
+    }
+
+    return <div>
+        <h1>Count: {count.current}</h1>
+        <button onClick={handleInc}>Increment Count</button>
+        &nbsp;
+        <button onClick={handleDec}>Decrement Count</button>
+        &nbsp;
+        <form>
+            <input type="email" ref={emailHandle} placeholder="Enter your email" />
+            &nbsp;
+            <button type="submit" onClick={(e) => {
+                e.preventDefault();
+                console.log(emailHandle.current.value);
+            }}>Submit</button>
+        </form>
     </div>
 }
 
