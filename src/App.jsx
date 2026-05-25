@@ -51,7 +51,7 @@ const App = () => {
         <ul>
             {
                 count.map(recipes => (
-                    <Menu key={recipes.id} menu={recipes} />
+                    <Menu key={recipes.id} recipes={recipes} />
                 ))
             }
         </ul>
