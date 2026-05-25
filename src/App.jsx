@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Menu from'./components/Menu.jsx'
 
 const App = () => {
 
@@ -50,7 +51,7 @@ const App = () => {
         <ul>
             {
                 count.map(recipes => (
-                    <li key={recipes.id}>{recipes.name}</li>
+                    <Menu key={recipes.id} menu={recipes} />
                 ))
             }
         </ul>
