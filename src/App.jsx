@@ -1,11 +1,11 @@
 import React from 'react'
-import axios from 'axios'
+/*import axios from 'axios'
 import Menu from'./components/Menu.jsx'
 
 const App = () => {
 
     //const [count, setCount] = React.useState(0);
-    const [count, setCount] = React.useState([]);
+    const [count, setCount] = React.useState([]);*/
     
     // This code will fetch the recipes from the API every time the component renders, which is not ideal. We can use useEffect to control when the fetch happens.
     /*fetch('https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes')
@@ -35,18 +35,18 @@ const App = () => {
     }, [count]);*/
 
     //using axios to fetch data from the API, which is a popular library for making HTTP requests in JavaScript. It provides a simple and easy-to-use API for making requests and handling responses.
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         axios.get('https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes')
         .then(response => setCount(response.data));
     }, []);
 
-    console.log(count);
+    console.log(count);*/
 
     /*return <div>
         <button onClick={() => setCount(count + 1)}>Fetch API</button>
     </div>*/
 
-    return <div>
+    /*return <div>
         <h1>Menu</h1>
         <ul>
             {
@@ -57,6 +57,38 @@ const App = () => {
         </ul>
     </div>
 
+}*/
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'LIKE':
+            return state + 1;
+        case 'DISLIKE':
+            if (state > 0) {
+                return state - 1;
+            }
+            else {
+                return state;
+            }
+        case 'GOLDEN_LIKES':
+            return state + action.payload;
+        default:
+            return state;
+    }
+};
+
+const App = () => {
+
+    const [likes, dispatch] = React.useReducer(reducer, 0);
+
+    return <div>
+        <h1>Likes: {likes}</h1>
+        <button onClick={() => dispatch({ type: 'LIKE' })}>Like</button>
+            &nbsp;
+        <button onClick={() => dispatch({ type: 'DISLIKE' })}>Dislike</button>
+            &nbsp;
+        <button onClick={() => dispatch({ type: 'GOLDEN_LIKES', payload: 10 })}>Golden Like</button>
+    </div>
 }
 
 export default App
