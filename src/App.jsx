@@ -1,4 +1,5 @@
 import React from 'react'
+import { createBrowserRouter , RouterProvider } from 'react-router';
 /*import axios from 'axios'
 import Menu from'./components/Menu.jsx'
 
@@ -91,7 +92,7 @@ const App = () => {
     </div>
 }*/
 
-const App = () => {
+/*const App = () => {
 
     let count = React.useRef(0);
     const emailHandle = React.useRef(null);
@@ -118,6 +119,32 @@ const App = () => {
                 console.log(emailHandle.current.value);
             }}>Submit</button>
         </form>
+    </div>
+}*/
+
+//create router object
+const router = createBrowserRouter([
+    //each route is an object with a path and an element
+    {
+        path: '/',
+        element: <h1>Home Page</h1>
+    },
+    {
+        path: '/codekata',
+        element: <h1>Code Kata Page</h1>
+    },
+    {
+        path: '/sqlkata',
+        element: <h1>SQL Kata Page</h1>
+    }
+]);
+
+const App = () => {
+    return <div>
+        <RouterProvider router={router} />
+        <a href="/codekata">CodeKata</a>
+        &nbsp;
+        <a href="/sqlkata">SQLKata</a>
     </div>
 }
 
