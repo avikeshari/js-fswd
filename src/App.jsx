@@ -1,9 +1,10 @@
 import React from 'react'
 import { createBrowserRouter , RouterProvider } from 'react-router';
-/*import axios from 'axios'
-import Menu from'./components/Menu.jsx'
+//import axios from 'axios'
+//import Menu from'./components/Menu.jsx'
+import Header from'./components/Header.jsx'
 
-const App = () => {
+/*const App = () => {
 
     //const [count, setCount] = React.useState(0);
     const [count, setCount] = React.useState([]);*/
@@ -136,6 +137,10 @@ const router = createBrowserRouter([
     {
         path: '/sqlkata',
         element: <h1>SQL Kata Page</h1>
+    },
+    {
+        path: '/header',
+        element: <Header />
     }
 ]);
 
@@ -145,6 +150,8 @@ const App = () => {
         <a href="/codekata">CodeKata</a>
         &nbsp;
         <a href="/sqlkata">SQLKata</a>
+        &nbsp;
+        <a href="/header">Header</a>
     </div>
 }
 
