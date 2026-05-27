@@ -3,6 +3,10 @@ import { createBrowserRouter , RouterProvider } from 'react-router';
 //import axios from 'axios'
 //import Menu from'./components/Menu.jsx'
 import Header from'./components/Header.jsx'
+import Home from'./pages/Home.jsx'
+import Register from'./pages/Register.jsx'
+import Login from'./pages/Login.jsx'
+import HomeWrap from'./wrappers/HomeWrap.jsx'
 
 /*const App = () => {
 
@@ -128,7 +132,23 @@ const router = createBrowserRouter([
     //each route is an object with a path and an element
     {
         path: '/',
-        element: <h1>Home Page</h1>
+        element: <HomeWrap />,
+        children: [
+            {
+                path: '/home',
+                //path: '',
+                //index: true,
+                element: <Home />
+            },
+            {
+                path: 'register',
+                element: <Register />
+            },
+            {
+                path: 'login',
+                element: <Login />
+            }
+        ]
     },
     {
         path: '/codekata',
